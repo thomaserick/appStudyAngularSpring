@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript">
+
+        angular.module('app', [])
+        angular.module('app').controller('MeuController', [
+
+
+            function () {
+
+                const _self = this;
+
+                _self.value = 10;
+                _self.inc = function () {
+                    _self.value++
+                }
+
+            }
+        ])
+
+
+    </script>
+</head>
+
+<body>
+    <div ng-controller="MeuController as ctrl">
+        <h1>{{ ctrl.value}}</h1>
+        <input type="text" ng-model="ctrl.value">
+        <button ng-click="ctrl.inc()">Incluir</button>
+    </div>
+</body>
+
+</html>

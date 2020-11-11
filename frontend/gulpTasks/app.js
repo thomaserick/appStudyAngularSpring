@@ -6,7 +6,7 @@ const concat = require('gulp-concat')
 const htmlmin = require('gulp-htmlmin')
 
 const appHtml = (cb) => {
-    return gulp.src('src/**/*.html')
+    return gulp.src('app/**/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('public'))
 }
@@ -19,7 +19,7 @@ const appCss = (cb) => {
 }
 
 const appJs = (cb) => {
-    return gulp.src('src/assets/js/**/*.js')
+    return gulp.src('app/**/*.js')
         .pipe(babel({ presets: ['env'] }))  //Coloca na versao do es5
         .pipe(uglify())                     //Pega os arquivos para retirar espaços em brancos/identações coisas do tipo
         .pipe(concat('app.min.js'))         //Juntar tudo em um arquivo só

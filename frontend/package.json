@@ -10,9 +10,9 @@
   "author": "Thomas Erick",
   "license": "ISC",
   "devDependencies": {
-    "@uirouter/angularjs": "1.0.3",
     "admin-lte": "2.3.11",
     "angular": "1.8.0",
+    "angular-ui-router": "1.0.3",
     "angular-animate": "1.8.0",
     "angular-toastr": "2.1.1",
     "font-awesome": "4.7.0",

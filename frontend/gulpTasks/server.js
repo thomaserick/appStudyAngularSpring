@@ -2,6 +2,8 @@ const gulp = require('gulp')
 const watch = require('gulp-watch')
 const webserver = require('gulp-webserver')
 
+
+//Chama as Tasks 
 const monitorarMudancas = (cb) => {
     watch('app/**/*.html', () => gulp.start('appHTML'))
     watch('app/**/*.css', () => gulp.start('appCSS'))

@@ -25,7 +25,7 @@
 
 - iniciar o servidor
 
-  - json-server -watch nomeArquivo.json -p 3003 -w
+  - json-server nomeArquivo.json -p 3003 -w
 
 **Helpers**
 

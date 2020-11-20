@@ -1,3 +1,5 @@
+(function()
+{
 angular.module('App').component('valueBox', {
     bindings: {
         grid:'@',
@@ -15,3 +17,4 @@ angular.module('App').component('valueBox', {
     ],
     templateUrl: 'common/components/valueBoxComponent.html'
 })
+})();

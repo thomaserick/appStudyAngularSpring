@@ -1,3 +1,5 @@
+(function()
+{
 angular.module("App").component("contentHeader", {
     bindings: {
       name: "@",
@@ -5,3 +7,4 @@ angular.module("App").component("contentHeader", {
     },
     templateUrl: 'common/components/contentHeaderComponent.html',
   });
+})();

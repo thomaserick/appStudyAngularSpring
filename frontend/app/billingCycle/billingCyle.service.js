@@ -2,11 +2,11 @@
 
     angular
         .module('App')
-        .factory('BillingCycleService', BillingCycleService)
+        .factory('billingCycleService', billingCycleService)
 
-    BillingCycleService.$inject = ['$http', '$q'];
+    billingCycleService.$inject = ['$http', '$q'];
 
-    function BillingCycleService($http, $q) {
+    function billingCycleService($http, $q) {
 
         var service = {
 

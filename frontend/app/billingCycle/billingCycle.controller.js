@@ -4,9 +4,9 @@
         .module('App')
         .controller('billingCycleCtrl', billingCycleController);
 
-    billingCycleController.$inject = ['billingCycleService'];
+    billingCycleController.$inject = ['billingCycleService', 'msgsToastr'];
 
-    function billingCycleController(billingCycleService) {
+    function billingCycleController(billingCycleService, msgsToastr) {
 
         const _self = this;
 
@@ -15,10 +15,10 @@
             billingCycleService.saveBillingCycle(_self.billingCycle)
                 .then(function (data) {
                     _self.billingCycle = {};
-                    console.log('Sucesso!', data)
+                    msgsToastr.addSucess('Operação realizada com sucesso!!')
                 })
                 .catch(function (error) {
-                    console.log(error, 'erro');
+                    msgsToastr.addError(error.statusText)
                 })
 
         };

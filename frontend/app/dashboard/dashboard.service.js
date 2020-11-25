@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('App')
-        .service('DashboardService', DashboardService);
+        .factory('DashboardService', DashboardService);
 
     DashboardService.$inject = ['$http', '$q'];
 

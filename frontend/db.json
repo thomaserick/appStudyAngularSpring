@@ -16,13 +16,13 @@
   "profile": {
     "name": "typicode"
   },
-
-  "billingSummary": {    
-    "credit":12000,
-    "debt":700
- },
-
- "billingCycles": {    
- 
-}
+  "billingSummary": {
+    "credit": 12000,
+    "debt": 700
+  },
+  "billingCycles": {
+    "name": "Thomas Erick",
+    "month": 5,
+    "year": 5
+  }
 }

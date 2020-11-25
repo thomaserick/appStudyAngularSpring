@@ -19,7 +19,7 @@
         function saveBillingCycle(billingCycle) {
 
             console.log('aqui')
-            const url = `http://localhost:3003/billingCycles1`;
+            const url = `http://localhost:3003/billingCycles`;
 
             return $http.post(url, billingCycle)
                 .then(saveBillingCyclData)

@@ -15,9 +15,8 @@
 
             billingCycleService.getAllBillingCyle()
                 .then((data) => {
-
                     _self.billingCycle = {};
-                    _self.ListbillingCycle = data;
+                    _self.listBillingCycle = data;
                 })
         }
 

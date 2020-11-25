@@ -20,9 +20,17 @@
     "credit": 12000,
     "debt": 700
   },
-  "billingCycles": {
+  "billingCycles": [{
     "name": "Thomas Erick",
     "month": 5,
     "year": 5
-  }
+  },{
+    "name": "Erick",
+    "month": 5,
+    "year": 5
+  },{
+    "name": "Thomas Erick",
+    "month": 5,
+    "year": 5
+  }]
 }

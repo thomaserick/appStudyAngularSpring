@@ -10,11 +10,22 @@
 
         const _self = this;
 
+
+        _self.refresh = function () {
+
+            billingCycleService.getAllBillingCyle()
+                .then((data) => {
+
+                    _self.billingCycle = {};
+                    _self.ListbillingCycle = data;
+                })
+        }
+
         _self.save = function () {
 
             billingCycleService.saveBillingCycle(_self.billingCycle)
                 .then(function (data) {
-                    _self.billingCycle = {};
+                    _self.refresh();
                     msgsToastr.addSucess('Operação realizada com sucesso!!')
                 })
                 .catch(function (error) {
@@ -22,6 +33,9 @@
                 })
 
         };
+
+
+        _self.refresh();
     }
 
 })()

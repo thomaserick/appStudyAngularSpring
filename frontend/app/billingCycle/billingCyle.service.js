@@ -8,32 +8,38 @@
 
     function billingCycleService($http, $q) {
 
+        const url = `http://localhost:3003/billingCycles`;
+
+
         var service = {
 
-            saveBillingCycle: saveBillingCycle
+            saveBillingCycle: saveBillingCycle,
+            getAllBillingCyle: getAllBillingCyle
 
         }
 
         return service;
 
-        function saveBillingCycle(billingCycle) {
+        function getAllBillingCyle() {
 
-            console.log('aqui')
-            const url = `http://localhost:3003/billingCycles`;
-
-            return $http.post(url, billingCycle)
-                .then(saveBillingCyclData)
+            return $http.get(url)
+                .then(responseBillingCyclData)
                 .catch(function (err) {
                     return $q.reject(err);
                 });
+        }
 
-            function saveBillingCyclData(response) {
-                return response.data;
-            }
+        function saveBillingCycle(billingCycle) {
 
+            return $http.post(url, billingCycle)
+                .then(responseBillingCyclData)
+                .catch(function (err) {
+                    return $q.reject(err);
+                });
+        }
 
-
-
+        function responseBillingCyclData(response) {
+            return response.data;
         }
 
     }

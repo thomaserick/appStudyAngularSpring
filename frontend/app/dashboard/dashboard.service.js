@@ -1,32 +1,32 @@
-(function (){
-    'use strict'
-
+(function () {
     angular
         .module('App')
-        .service('dashboardService', dashboardService);
+        .service('DashboardService', DashboardService);
 
-        dashboardService.$inject = ['$http'];
+    DashboardService.$inject = ['$http', '$q'];
 
-        function dashboardService ($http){
+    function DashboardService($http, $q) {
 
-            var service = {
-                getBillingSummary: getBillingSummary,
+        var service = {
+            getBillingSummary: getBillingSummary,
+        }
+
+        return service;
+
+        function getBillingSummary() {
+
+            const url = `http://localhost:3003/billingSummary`;
+
+            return $http.get(url)
+                .then(getBillingSummaryData)
+                .catch(function (err) {
+                    return $q.reject(err);
+                });
+
+
+            function getBillingSummaryData(response) {
+                return response.data;
             }
-
-            return service;
-
-            function getBillingSummary(){
-
-                const url = `http://localhost:3003/billingSummary`;
-
-                return $http.get(url)
-                .then(getBillingSummaryData)              
-
-
-                function getBillingSummaryData(response){                 
-                    return response.data;
-                }
-
         }
     }
 

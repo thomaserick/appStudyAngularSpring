@@ -35,6 +35,17 @@
         };
 
 
+        _self.showTabUpdate = function (billingCycle) {
+            _self.billingCycle = billingCycle;
+            tabs.show(_self, { tabUpdate: true })
+        }
+
+        _self.showTabDelete = function (billingCycle) {
+            _self.billingCycle = billingCycle;
+            tabs.show(_self, { tabDelete: true })
+        }
+
+
         _self.refresh();
     }
 

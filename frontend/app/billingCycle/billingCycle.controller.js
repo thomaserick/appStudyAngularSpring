@@ -4,9 +4,9 @@
         .module('App')
         .controller('billingCycleCtrl', billingCycleController);
 
-    billingCycleController.$inject = ['billingCycleService', 'msgsToastr'];
+    billingCycleController.$inject = ['billingCycleService', 'msgsToastr', 'tabs'];
 
-    function billingCycleController(billingCycleService, msgsToastr) {
+    function billingCycleController(billingCycleService, msgsToastr, tabs) {
 
         const _self = this;
 
@@ -17,6 +17,7 @@
                 .then((data) => {
                     _self.billingCycle = {};
                     _self.listBillingCycle = data;
+                    tabs.show(_self, { tabList: true, tabCreate: true })
                 })
         }
 

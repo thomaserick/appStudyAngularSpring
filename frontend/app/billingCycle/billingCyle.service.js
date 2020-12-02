@@ -14,7 +14,8 @@
         var service = {
 
             saveBillingCycle: saveBillingCycle,
-            getAllBillingCyle: getAllBillingCyle
+            getAllBillingCyle: getAllBillingCyle,
+            deleteBillingCycle: deleteBillingCycle
 
         }
 
@@ -36,6 +37,15 @@
                 .catch(function (err) {
                     return $q.reject(err);
                 });
+        }
+
+        function deleteBillingCycle(id) {
+            const deleteUrl = `${url}/${id}`;
+            return $http.delete(deleteUrl)
+                .then(responseBillingCyclData)
+                .catch(function (err) {
+                    return $q.reject(err)
+                })
         }
 
         function responseBillingCyclData(response) {

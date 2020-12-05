@@ -15,7 +15,7 @@
 
             billingCycleService.getAllBillingCyle()
                 .then((data) => {
-                    _self.billingCycle = {};
+                    _self.billingCycle = { credits: [{}], debts: [{}] };
                     _self.listBillingCycle = data;
                     tabs.show(_self, { tabList: true, tabCreate: true })
                 })

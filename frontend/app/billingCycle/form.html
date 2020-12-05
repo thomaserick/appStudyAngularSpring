@@ -6,6 +6,14 @@
             model="bcCtrl.billingCycle.month" readonly="bcCtrl.tabDelete"></field>
         <field type='number' id='year' label='Ano' grid='12 6 4' placeholder='Informe o Ano'
             model="bcCtrl.billingCycle.year" readonly="bcCtrl.tabDelete"></field>
+
+        <div class="col-xs-12 col-sm-6">
+            <fieldset>
+                <legend>Créditos</legend>
+                <div ng-include="'billingCycle/creditList.html'"></div>
+            </fieldset>
+        </div>
+
     </div>
     <div class="box-footer">
         <button ng-if="bcCtrl.tabCreate" class="btn btn-primary" ng-click="bcCtrl.save()">Incluir</button>

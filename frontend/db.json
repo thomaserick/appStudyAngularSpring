@@ -20,17 +20,24 @@
     "credit": 12000,
     "debt": 700
   },
-  "billingCycles": [{
-    "name": "Thomas Erick",
-    "month": 5,
-    "year": 5
-  },{
-    "name": "Erick",
-    "month": 5,
-    "year": 5
-  },{
-    "name": "Thomas Erick",
-    "month": 5,
-    "year": 5
-  }]
+  "billingCycles": [
+    {
+      "id": 1,
+      "name": "Thomas Erick Fernandes Mariano",
+      "month": 10,
+      "year": 2020
+    },
+    {
+      "id": 2,
+      "name": "Erick",
+      "month": 5,
+      "year": 5
+    },
+    {
+      "id": 3,
+      "name": "Thomas Erick",
+      "month": 5,
+      "year": 5
+    }
+  ]
 }

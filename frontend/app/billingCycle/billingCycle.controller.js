@@ -45,8 +45,19 @@
             tabs.show(_self, { tabDelete: true })
         }
 
+        _self.update = function () {
+            billingCycleService.updateBillingCycle(_self.billingCycle)
+                .then(function (data) {
+                    _self.refresh();
+                    msgsToastr.addSucess('Operação realizada com sucesso!!')
+                })
+                .catch(function (error) {
+                    msgsToastr.addError(error.statusText)
+                })
+        }
+
         _self.delete = function () {
-            billingCycleService.deleteBillingCycle(_self.billingCycle._id)
+            billingCycleService.deleteBillingCycle(_self.billingCycle.id)
                 .then(function (data) {
                     _self.refresh();
                     msgsToastr.addSucess('Operação realizada com sucesso!!')

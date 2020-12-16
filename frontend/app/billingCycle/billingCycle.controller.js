@@ -67,39 +67,43 @@
         });
     };
 
-    _self.addCredit = function (index) {
+    //--Credits
+
+    _self.addCredit = (index) => {
       _self.billingCycle.credits.splice(index + 1, 0, {});
     };
 
-    _self.cloneCredit = function (index, { name, value }) {
+    _self.cloneCredit = (index, { name, value }) => {
       _self.billingCycle.credits.splice(index + 1, 0, { name, value });
       _self.calculateValues();
     };
 
-    _self.deleteCredit = function (index) {
+    _self.deleteCredit = (index) => {
       if (_self.billingCycle.credits.length > 1) {
         _self.billingCycle.credits.splice(index, 1);
       }
       _self.calculateValues();
     };
 
-    _self.addDebt = function (index) {
+    //--Debts
+
+    _self.addDebt = (index) => {
       _self.billingCycle.debts.splice(index + 1, 0, {});
     };
 
-    _self.cloneDebt = function (index, { name, value, status }) {
+    _self.cloneDebt = (index, { name, value, status }) => {
       _self.billingCycle.debts.splice(index + 1, 0, { name, value, status });
       _self.calculateValues();
     };
 
-    _self.deleteDebt = function (index) {
+    _self.deleteDebt = (index) => {
       if (_self.billingCycle.debts.length > 1) {
         _self.billingCycle.debts.splice(index, 1);
       }
       _self.calculeteValues();
     };
 
-    _self.calculateValues = function () {
+    _self.calculateValues = () => {
       _self.credit = 0;
       _self.debt = 0;
 
@@ -111,9 +115,9 @@
         _self.billingCycle.debts.forEach(function ({ value }) {
           _self.debt += !value || isNaN(value) ? 0 : parseFloat(value);
         });
-      }
 
-      _self.total = _self.credit - _self.debt;
+        _self.total = _self.credit - _self.debt;
+      }
     };
 
     _self.refresh();

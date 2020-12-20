@@ -1,21 +1,12 @@
-# Aplicativo para Estudos de AngularJs e Spring Boot
+# Aplicativo para Estudos de Angular e Spring Boot
 
 ### Tecnologias Utilizadas
 
-- AngularJs
+- Angular2
 
 ## FrondEnd
 
-- npm i
-  - inicia o node
-- npm i angular --save
-  - baixa a ultima versão do angularJs
 
-### Ngs
-
-- ng-app -> Cria a aplicação
-- ng-controller -> associa uma função a tela
-- ng-module -> cria vinculo entre campos e tela
 
 ### Utils
 

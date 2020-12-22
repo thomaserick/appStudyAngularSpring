@@ -2,11 +2,29 @@
 
 ### Tecnologias Utilizadas
 
-- Angular2
+- Angular9
+- Spring Boot
 
-## FrondEnd
+### Instalação
 
+- chocolate
+  - choco -v
+- NodeJs
+  - choco install nodejs-lts
 
+### Dependencias FrontEnd(Angular9)
+
+- npm install -g @angular/cli - Instalação do angular global
+
+**Comandos**
+
+- ng new (Nome do projeto) - Cria o projeto
+- ng serve --open
+  - Start a aplicacao
+- ng generate component (ng g c (nome))
+  - Cria os componentes
+- ng generate model (ng g c (nome))
+  - Cria os modulos
 
 ### Utils
 

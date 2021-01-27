@@ -15,6 +15,8 @@
 ### Dependencias FrontEnd(Angular9)
 
 - npm install -g @angular/cli - Instalação do angular global
+- Angular Material
+  - ng add @angular/material
 
 **Comandos**
 

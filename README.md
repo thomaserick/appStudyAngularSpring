@@ -14,7 +14,8 @@
 
 ### Dependencias FrontEnd(Angular9)
 
-- npm install -g @angular/cli - Instalação do angular global
+- Instalação do angular global
+  - npm install -g @angular/cli
 - Angular Material
   - ng add @angular/material
 
@@ -37,6 +38,10 @@
 - iniciar o servidor
 
   - json-server nomeArquivo.json -p 3003 -w
+
+- Ajustes nas classes
+  - Alterar o tsconfig adicionando a config " "strictPropertyInitialization": false,"
+  - Adicionando opcional(?) nos atributos
 
 **Helpers**
 

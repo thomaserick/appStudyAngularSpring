@@ -3,6 +3,7 @@ package com.tef.agendaapi.Rest;
 import com.tef.agendaapi.entity.Contact;
 import com.tef.agendaapi.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/contacts")
+@CrossOrigin(origins = "*")
 public class ContactController {
 
 
@@ -22,7 +24,7 @@ public class ContactController {
     }
 
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Contact> insert(@RequestBody Contact contact) {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(contact.getId()).toUri();
         return ResponseEntity.created(uri).body(contactService.insert(contact));

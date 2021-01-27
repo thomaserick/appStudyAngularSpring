@@ -1,6 +1,6 @@
-export class Contacts {
+export class Contact {
     id: number;
     name: String;
     email: String;
-    favorite: String;    
+    favorite: Boolean;    
 }

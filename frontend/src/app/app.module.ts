@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactComponent } from './contact/contact.component';
 import { ContactService } from './contact.service'
+import {ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ContactService } from './contact.service'
     MatToolbarModule,
     MatInputModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [ContactService],

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpResponse } from '@angu
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contact } from './contact/contact';
-import {environment} from '../environments/environment'
+import { environment } from '../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,11 @@ export class ContactService {
   ) { }
 
 
-  save(contatc: Contact): Observable<Contact>
-  {   
-    return this.http.post<Contact>(this.URI, contatc)   
+  save(contatc: Contact): Observable<Contact> {
+    return this.http.post<Contact>(this.URI, contatc)
+  }
+
+  findAll(): Observable<Contact[]> {
+    return this.http.get<any>(this.URI);
   }
 }

@@ -10,9 +10,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 })
 export class ContactComponent implements OnInit {
 
-
   form: FormGroup;
-
+  contacts:Contact[]=[];
 
   constructor(
     private contactService: ContactService,
@@ -29,16 +28,14 @@ export class ContactComponent implements OnInit {
 
 
   submit(){
+ 
+  const formValues = this.form.value;
+  const contact: Contact = new Contact(formValues.name,formValues.email);
 
-    this.form.controls.required.errors
-
-    const isValid = this.form.valid
-    console.log(this.form.value)
-    console.log(isValid)
-
-    // this.contactService.save(contact).subscribe( resp => {
-    //   console.log(resp)
-    // } )    
+  this.contactService.save(contact).subscribe( resp => {
+      this.contacts.push(resp);
+      console.log(resp)
+     } )    
 
   }
 

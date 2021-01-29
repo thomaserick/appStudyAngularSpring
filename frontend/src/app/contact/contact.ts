@@ -1,8 +1,11 @@
+import { Byte } from "@angular/compiler/src/util";
+
 export class Contact {
     id: number;
     name: String;
     email: String;
     favorite: Boolean;
+    photo: any
 
     constructor(name: string, email: string, favorite: Boolean) {
         this.name = name;

@@ -40,7 +40,7 @@ public class ContactService {
         });
     }
 
-    public void insertPhoto(Integer id, Part file) {
+    public byte[] insertPhoto(Integer id, Part file) {
 
         Optional<Contact> contac = contactRepository.findById(id);
         byte[] bytes = convertPartFileToBytes(file);
@@ -49,6 +49,8 @@ public class ContactService {
             c.setPhoto(bytes);
             contactRepository.save(c);
         });
+
+        return bytes;
     }
 
     public byte[] convertPartFileToBytes(Part file) {

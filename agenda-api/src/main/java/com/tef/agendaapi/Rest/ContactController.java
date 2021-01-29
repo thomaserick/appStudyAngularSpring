@@ -51,10 +51,10 @@ public class ContactController {
     }
 
     @PutMapping("{id}/photo")
-    public void insertPhoto(@PathVariable Integer id,
+    public ResponseEntity<byte[]> insertPhoto(@PathVariable Integer id,
                             @RequestParam("photo") Part file)
     {
-        contactService.insertPhoto(id,file);
+        return ResponseEntity.ok().body(contactService.insertPhoto(id,file));
     }
 
 }

@@ -5,3 +5,9 @@
 .half-width {
   width: 50%;
 }
+
+.photoContact {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

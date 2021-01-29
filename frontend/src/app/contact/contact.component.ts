@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Contact } from './contact';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Observable } from 'rxjs';
-import { ThrowStmt } from '@angular/compiler';
+import { MatDialog } from '@angular/material/dialog'
+
 
 @Component({
   selector: 'app-contact',
@@ -18,7 +18,8 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private contactService: ContactService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private matDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.setUpForm();

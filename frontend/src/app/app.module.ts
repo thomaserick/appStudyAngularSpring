@@ -16,12 +16,14 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card'
-
+import { MatDialogModule } from '@angular/material/dialog'
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactComponent
+    ContactComponent,
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { MatCardModule } from '@angular/material/card'
     MatTabsModule,
     MatTableModule,
     MatIconModule,
+    MatDialogModule,
     MatCardModule,
     BrowserAnimationsModule
   ],

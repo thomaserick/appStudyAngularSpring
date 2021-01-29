@@ -30,7 +30,7 @@ export class ContactService {
 
 
   uploadPhoto(contact: Contact, formData: FormData): Observable<any> {
-    return this.http.put(`${this.URI}/${contact.id}/photo`, formData);
+    return this.http.put(`${this.URI}/${contact.id}/photo`, formData, { responseType: 'blob' });
   }
 
 }

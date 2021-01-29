@@ -39,6 +39,12 @@ export class ContactComponent implements OnInit {
 
   }
 
+  favorite(contact: Contact) {
+    this.contactService.favorite(contact).subscribe(resp => {
+      contact.favorite = !contact.favorite;
+    })
+  }
+
   submit() {
 
     const formValues = this.form.value;

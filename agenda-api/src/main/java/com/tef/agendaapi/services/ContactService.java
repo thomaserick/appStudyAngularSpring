@@ -28,10 +28,11 @@ public class ContactService {
         return contactRepository.findAll();
     }
 
-    public void favorite(Integer id, Boolean favorite) {
+    public void favorite(Integer id) {
         Optional<Contact> contact = contactRepository.findById(id);
         contact.ifPresent(c -> {
-            c.setFavorite(favorite);
+            Boolean favorite = c.getFavorite() == Boolean.TRUE;
+            c.setFavorite(!favorite);
             contactRepository.save(c);
         });
     }

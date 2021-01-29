@@ -44,9 +44,9 @@ public class ContactController {
     }
 
     @PatchMapping("{id}/favorite")
-    public ResponseEntity<Void> favorite(@PathVariable Integer id, @RequestBody Boolean favorite)
+    public ResponseEntity<Void> favorite(@PathVariable Integer id)
     {
-        contactService.favorite(id, favorite);
+        contactService.favorite(id);
         return ResponseEntity.noContent().build();
     }
 

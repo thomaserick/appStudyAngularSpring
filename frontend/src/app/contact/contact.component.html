@@ -18,6 +18,7 @@
               <img
                 class="photoContact"
                 src="data:image/png;base64,{{ contact.photo }}"
+                (click)="viewerContact(contact)"
               />
             </div>
             <div *ngIf="!contact.photo">

@@ -3,6 +3,7 @@ import { ContactService } from '../contact.service';
 import { Contact } from './contact';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { MatDialog } from '@angular/material/dialog'
+import { ContactDetailComponent } from '../contact-detail/contact-detail.component'
 
 
 @Component({
@@ -71,6 +72,14 @@ export class ContactComponent implements OnInit {
         .subscribe(resp => this.listContacts())
     }
 
+  }
+
+  viewerContact(contact: Contact) {
+    this.matDialog.open(ContactDetailComponent, {
+      width: '400px',
+      height: '400px',
+      data: contact
+    })
   }
 
 

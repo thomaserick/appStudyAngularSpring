@@ -1,16 +1,22 @@
-<mat-card class="mat_Card">
+<mat-card class="mat_card">
   <mat-card-header>
     <mat-card-title>
       <mat-icon>face</mat-icon>
       Contato
     </mat-card-title>
-    <img mat-card-image src="data:image/png;base64,{{ contact.photo }}" />
   </mat-card-header>
+  <img
+    mat-card-image
+    class="photo"
+    src="data:image/png;base64,{{ contact.photo }}"
+  />
   <mat-card-content>
     <p>
       <strong>
         {{ contact.name }}
       </strong>
+    </p>
+    <p>
       <strong>
         {{ contact.email }}
       </strong>

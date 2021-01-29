@@ -18,13 +18,18 @@ public class Contact {
     @Column
     private Boolean favorite;
 
+    @Column
+    @Lob
+    private byte[] photo;
+
     public Contact() {
     }
 
-    public Contact(String name, String email, Boolean favorite) {
+    public Contact(String name, String email, Boolean favorite, byte[] photo) {
         this.name = name;
         this.email = email;
         this.favorite = favorite;
+        this.photo = photo;
     }
 
     public Integer getId() {
@@ -57,5 +62,13 @@ public class Contact {
 
     public void setFavorite(Boolean favorite) {
         this.favorite = favorite;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 }

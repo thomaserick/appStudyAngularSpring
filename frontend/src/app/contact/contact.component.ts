@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Contact } from './contact';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Observable } from 'rxjs';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +14,7 @@ export class ContactComponent implements OnInit {
 
   form: FormGroup;
   contacts: Contact[] = [];
-  columnsToDisplay = ['id', 'name', 'email', 'favorite']
+  columnsToDisplay = ['photo', 'id', 'name', 'email', 'favorite']
 
   constructor(
     private contactService: ContactService,
@@ -51,10 +53,24 @@ export class ContactComponent implements OnInit {
     const contact: Contact = new Contact(formValues.name, formValues.email, false);
 
     this.contactService.save(contact).subscribe(resp => {
-      this.contacts.push(resp);
-      console.log(resp)
+      let listContacts: Contact[] = [...this.contacts, resp]
+      this.contacts = listContacts;
+
     })
+  }
+
+  uploadPhoto(event: any, contact: Contact) {
+    const files = event.target.files;
+    if (files) {
+      const photo = files[0];
+      const formData = new FormData()
+      formData.append("photo", photo);
+      this.contactService
+        .uploadPhoto(contact, formData)
+        .subscribe(resp => this.listContacts())
+    }
 
   }
+
 
 }

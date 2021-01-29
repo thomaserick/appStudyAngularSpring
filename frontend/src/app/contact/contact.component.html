@@ -11,6 +11,20 @@
     </ng-template>
     <mat-card>
       <table mat-table [dataSource]="contacts" class="full-width">
+        <ng-container matColumnDef="photo">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let contact">
+            <div></div>
+            <div *ngIf="!contact.photo">
+              <input
+                type="file"
+                name="photo"
+                (change)="uploadPhoto($event, contact)"
+              />
+            </div>
+          </td>
+        </ng-container>
+
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>ID</th>
           <td mat-cell *matCellDef="let contact">{{ contact.id }}</td>
@@ -68,7 +82,7 @@
           />
         </mat-form-field>
         <div *ngIf="form.controls.email.errors">Campo email é obrigatório.</div>
-        <button [disabled]="!form.valid" mat-button color="primary">
+        <button [disabled]="!form.valid" mat-raised-button color="primary">
           Adicionar
         </button>
       </form>

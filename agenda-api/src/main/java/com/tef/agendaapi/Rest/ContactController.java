@@ -3,11 +3,11 @@ package com.tef.agendaapi.Rest;
 import com.tef.agendaapi.entity.Contact;
 import com.tef.agendaapi.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.Part;
 import java.net.URI;
 import java.util.List;
 
@@ -48,6 +48,13 @@ public class ContactController {
     {
         contactService.favorite(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("{id}/photo")
+    public void insertPhoto(@PathVariable Integer id,
+                            @RequestParam("photo") Part file)
+    {
+        contactService.insertPhoto(id,file);
     }
 
 }

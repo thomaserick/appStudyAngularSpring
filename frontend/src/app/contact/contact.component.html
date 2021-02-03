@@ -60,6 +60,13 @@
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
         <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
       </table>
+      <mat-paginator
+        [length]="totalElements"
+        [pageSize]="linesPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="paginator($event)"
+      >
+      </mat-paginator>
     </mat-card>
   </mat-tab>
   <mat-tab>
@@ -78,7 +85,9 @@
             placeholder="Digite seu nome"
           />
         </mat-form-field>
-        <div *ngIf="form.controls.name.errors">Campo nome é obrigatório.</div>
+        <div *ngIf="form.controls.name.errors && !form.controls.name.pristine">
+          Campo nome é obrigatório.
+        </div>
         <mat-form-field class="full-width">
           <mat-label>Email:</mat-label>
           <input
@@ -87,7 +96,11 @@
             placeholder="Digite seu email"
           />
         </mat-form-field>
-        <div *ngIf="form.controls.email.errors">Campo email é obrigatório.</div>
+        <div
+          *ngIf="form.controls.email.errors && !form.controls.email.pristine"
+        >
+          Campo email é obrigatório.
+        </div>
         <button [disabled]="!form.valid" mat-raised-button color="primary">
           Adicionar
         </button>

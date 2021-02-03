@@ -10,7 +10,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.Part;
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/contacts")

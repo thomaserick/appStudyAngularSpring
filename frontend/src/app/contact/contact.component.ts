@@ -4,6 +4,8 @@ import { Contact } from './contact';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { MatDialog } from '@angular/material/dialog'
 import { ContactDetailComponent } from '../contact-detail/contact-detail.component'
+import { PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -16,15 +18,20 @@ export class ContactComponent implements OnInit {
   form: FormGroup;
   contacts: Contact[] = [];
   columnsToDisplay = ['photo', 'id', 'name', 'email', 'favorite']
+  totalElements: number = 0;
+  page: number = 0;
+  linesPage: number = 2;
+  pageSizeOptions: number[] = [10];
 
   constructor(
     private contactService: ContactService,
     private formBuilder: FormBuilder,
-    private matDialog: MatDialog) { }
+    private matDialog: MatDialog,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.setUpForm();
-    this.listContacts();
+    this.listPageContacts(this.page, this.linesPage);
 
   }
 
@@ -39,6 +46,14 @@ export class ContactComponent implements OnInit {
   listContacts() {
     this.contactService.findAll().subscribe(resp => {
       this.contacts = resp;
+    })
+  }
+
+  listPageContacts(page = this.page, linesPage = this.linesPage) {
+    this.contactService.findPage(page, linesPage).subscribe(resp => {
+      this.contacts = resp.content;
+      this.totalElements = resp.totalElements;
+      this.page = resp.number;
     })
 
   }
@@ -57,6 +72,10 @@ export class ContactComponent implements OnInit {
     this.contactService.save(contact).subscribe(resp => {
       let listContacts: Contact[] = [...this.contacts, resp]
       this.contacts = listContacts;
+      this.snackBar.open("Contato adicionado!!", 'Sucesso', {
+        duration: 2000
+      })
+      this.form.reset();
 
     })
   }
@@ -69,7 +88,7 @@ export class ContactComponent implements OnInit {
       formData.append("photo", photo);
       this.contactService
         .uploadPhoto(contact, formData)
-        .subscribe(resp => this.listContacts())
+        .subscribe(resp => this.listPageContacts())
     }
 
   }
@@ -82,5 +101,9 @@ export class ContactComponent implements OnInit {
     })
   }
 
+  paginator(event: PageEvent) {
+    this.page = event.pageIndex;
+    this.listPageContacts(this.page, this.linesPage)
+  }
 
 }

@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card'
 import { MatDialogModule } from '@angular/material/dialog'
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
     MatIconModule,
     MatDialogModule,
     MatCardModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
     BrowserAnimationsModule
   ],
   providers: [ContactService],

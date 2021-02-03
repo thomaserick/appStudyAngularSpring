@@ -1,8 +1,12 @@
 # Aplicativo para Estudos de Angular e Spring Boot
 
+## Projeto Agenda de Contatos
+
 ### Tecnologias Utilizadas
 
-- Angular9
+- Angular10
+  - Material
+  - ReactForms
 - Spring Boot
 
 ### Instalação
@@ -12,7 +16,7 @@
 - NodeJs
   - choco install nodejs-lts
 
-### Dependencias FrontEnd(Angular9)
+### Dependencias FrontEnd(Angular10)
 
 - Instalação do angular global
   - npm install -g @angular/cli
@@ -39,7 +43,7 @@
 
   - json-server nomeArquivo.json -p 3003 -w
 
-- Ajustes nas classes
+- Ajustes nas classes Angular10
   - Alterar o tsconfig adicionando a config " "strictPropertyInitialization": false,"
   - Adicionando opcional(?) nos atributos
 
